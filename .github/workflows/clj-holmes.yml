@@ -34,10 +34,10 @@ jobs:
           rules-repository: 'git://org/private-rules-repo#main'
           output-type: 'sarif'
           output-file: 'clj-holmes-results.sarif'
-          fail-on-result: 'false'
+          fail-on-result: 'true'
 
       - name: Upload analysis results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v1
         with:
           sarif_file: ${{github.workspace}}/clj-holmes-results.sarif
-          ait-for-processing: true
+          ait-for-processing: false
